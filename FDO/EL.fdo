@@ -1,0 +1,14 @@
+@prefix : <https://hackathon.fair-dtls.surf-hosted.nl/> .
+@prefix fdo: <http://example.com/fdo#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+
+:datasetRecord a fdo:Record ;
+    fdo:digitalObjectOfType fdo:MGFile ;
+    fdo:locationOfDO <https://hackathon.fair-dtls.surf-hosted.nl/> ;
+    datacite:hasIdentifier :identifier ;
+    dct:conformsTo <https://hackathon.fair-dtls.surf-hosted.nl/shacl-record.ttl> .
+
+:identifier a datacite:Identifier .
+
+
