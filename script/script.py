@@ -39,11 +39,19 @@ def parseStuffLocation(loc):
     r = requests.get(loc)
 
     for entry in r.json():
-        if entry['name'] == "index.ttl":
+        if entry['name'] == "description.ttl":
             g.parse(loc + entry['name'], format="turtle")
 
     # get the 2 location files
-    g.query("""SELECT * WHERE { ?s ?p ?o }""")
+    g.query("""prefix fdo: <http://example.com/fdo#> 
+
+SELECT DISTINCT ?adjacencyFileUrl ?atomFileUrl {
+
+?mgFile a  fdo:MGFile;
+fdo:hasAdjacencyFile ?adjacencyFileUrl;
+fdo:hasAtomsFile ?atomFileUrl.
+
+}""")
 
     # do something with the result
 
