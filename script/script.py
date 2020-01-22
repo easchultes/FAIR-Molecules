@@ -1,6 +1,7 @@
 import sys
 import requests
 import rdflib
+import json
 
 if len(sys.argv) == 1:
     print("FAILED: expected one argument")
@@ -8,13 +9,7 @@ if len(sys.argv) == 1:
 
 def parseAllStuff(arg):
     g = rdflib.Graph()
-    r = requests.get(arg)
-
-    for entry in r.json():
-        if entry['type'] == "file":
-            url = arg + entry['name']
-            print("adding %s to graph" % url)
-            g.parse(url, format="turtle")
+    g.parse(arg, format="turtle")
 
     # parse all files
     result = g.query("""prefix fdo: <http://example.com/fdo#> 
@@ -28,8 +23,8 @@ fdo:locationOfDO ?location.
 
     location = None
     # find file location
-    for stmt in result:
-        print(stmt)
+    for row in result:
+        location = str(row[0])
 
     return location
 
@@ -43,7 +38,7 @@ def parseStuffLocation(loc):
             g.parse(loc + entry['name'], format="turtle")
 
     # get the 2 location files
-    g.query("""prefix fdo: <http://example.com/fdo#> 
+    result = g.query("""prefix fdo: <http://example.com/fdo#> 
 
 SELECT DISTINCT ?adjacencyFileUrl ?atomFileUrl {
 
@@ -53,10 +48,15 @@ fdo:hasAtomsFile ?atomFileUrl.
 
 }""")
 
+    results = {}
+
+    for row in result:
+        results['adjecencyFileUrl'] = str(row[0])
+        results['atomFileUrl'] = str(row[1])
     # do something with the result
+    return json.dumps(results)
 
 # get files from input argument url location
 arg = sys.argv[1]
-print("will retrieve files from %s" % arg)
 loc = parseAllStuff(arg)
 print(parseStuffLocation(loc))
