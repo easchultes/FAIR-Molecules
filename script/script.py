@@ -17,7 +17,14 @@ def parseAllStuff(arg):
             g.parse(url, format="turtle")
 
     # parse all files
-    result = g.query("""SELECT * WHERE { ?s ?p ?o }""")
+    result = g.query("""prefix fdo: <http://example.com/fdo#> 
+
+SELECT DISTINCT ?location {
+
+?fdoRecord a fdo:Record;
+fdo:digitalObjectOfType fdo:MGFile;
+fdo:locationOfDO ?location.
+}""")
 
     location = None
     # find file location
