@@ -51,7 +51,7 @@ fdo:hasAtomsFile ?atomFileUrl.
     results = {}
 
     for row in result:
-        results['adjecencyFileUrl'] = str(row[0])
+        results['adjacencyFileUrl'] = str(row[0])
         results['atomFileUrl'] = str(row[1])
     # do something with the result
     return json.dumps(results)
