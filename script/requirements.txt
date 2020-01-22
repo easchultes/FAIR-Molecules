@@ -1,0 +1,2 @@
+requests==2.22.0
+rdflib==4.2.2
