@@ -2,13 +2,12 @@
 @prefix fdo: <http://example.com/fdo#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 
 :datasetRecord a fdo:Record ;
-    fdo:digitalObjectOfType fdo:MGFile ;
-    fdo:locationOfDO <http://purl.org/fdof/hackathon/FAIR-Molecules/demo/> ;
+    fdo:digitalObjectOfType dcat:Dataset ;
+    fdo:locationOfDO <> ;
     datacite:hasIdentifier :identifier ;
     dct:conformsTo <http://purl.org/fdof/hackathon/FAIR-Molecules/demo/shacl-record.ttl> .
 
 :identifier a datacite:Identifier .
-
-

@@ -3,21 +3,22 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix fabio: <http://purl.org/spar/fabio/> .
-@prefix : <>.
+@prefix : <http://purl.org/fdof/hackathon/FAIR-Molecules/demo/fdo/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-:metadata a fabio:Metadata ;
+:mg2MolMetadata a fabio:Metadata ;
     dct:modified "2020-01-22T11:28:25.000Z"^^xsd:dateTime ;
     dct:created  "2020-01-22T11:28:25.000Z"^^xsd:dateTime ;
     dct:license <https://www.apache.org/licenses/LICENSE-2.0> ;
     dct:creator <https://orcid.org/0000-0002-4230-7938> ;
     dct:publisher <https://orcid.org/0000-0002-4230-7938> ;
     fdo:labelOfFDO :label ;
-    fdo:isMetadataOf :datasetRecord
+    fdo:isMetadataOf :mg2MolRecord;
     dct:conformsTo <http://purl.org/fdof/hackathon/FAIR-Molecules/demo/shacl-metadata.ttl> .
 
 
 :label a fdo:dockerimagename ;
-    rdfs:label "app/dbio/fairgraph2mol" ;
+    rdfs:label "app/dbio/fairgraph2mol" .
 
-:datasetRecord fdo:digitalObjectOfType dcat:Dataset .
-
+:mg2MolRecord fdo:digitalObjectOfType fdo:DockerImage .

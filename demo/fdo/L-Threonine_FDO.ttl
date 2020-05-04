@@ -1,0 +1,14 @@
+@prefix : <http://purl.org/fdof/hackathon/FAIR-Molecules/demo/fdo/> .
+@prefix fdo: <http://example.com/fdo#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+
+:lThreonineRecord a fdo:Record ;
+    fdo:digitalObjectOfType fdo:MGFile ;
+    fdo:locationOfDO <http://purl.org/fdof/hackathon/FAIR-Molecules/demo/L-Threonine/> ;
+    datacite:hasIdentifier :identifier ;
+    dct:conformsTo <http://purl.org/fdof/hackathon/FAIR-Molecules/demo/shacl-record.ttl> .
+
+<http://purl.org/fdof/hackathon/FAIR-Molecules/demo/fdo/L-Threonine_FDO_metadata.ttl> fdo:metadataOf :lThreonineRecord .
+
+:identifier a datacite:Identifier .

@@ -1,0 +1,11 @@
+@prefix : <http://purl.org/fdof/hackathon/FAIR-Molecules/demo/> .
+@prefix fdo: <> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+
+:datasetRecord a fdo:Record ;
+    fdo:digitalObjectOfType dcat:Dataset ;
+    fdo:locationOfDO <> ;
+    _:hasIdentifier [
+        a _:Identifier ;
+    ] .
+

@@ -1,0 +1,51 @@
+@prefix fdo: <http://example.com/fdo#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
+@prefix : <http://purl.org/fdof/hackathon/FAIR-Molecules/demo/fdo/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix scoro: <http://purl.org/spar/scoro> .
+@prefix pro: <http://purl.org/spar/pro> .
+@prefix orcid: <https://orcid.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+:lThreonineMetadata a fabio:Metadata ;
+    dct:modified "2020-01-22T11:28:25.000Z"^^xsd:dateTime ;
+    dct:created  "2020-01-22T11:28:25.000Z"^^xsd:dateTime ;
+    dct:license <https://www.apache.org/licenses/LICENSE-2.0> ;
+    dct:creator <https://orcid.org/0000-0002-4230-7938> ;
+    dct:publisher <https://orcid.org/0000-0002-4230-7938> ;
+    fdo:labelOfFDO :label ;
+    fdo:isMetadataOf :lThreonineRecord ;
+    dct:conformsTo <http://purl.org/fdof/hackathon/FAIR-Molecules/demo/shacl-metadata.ttl> .
+
+
+:label a fdo:filename ;
+    rdfs:label "L-Threonine MG file" .
+
+:lThreonineRecord fdo:digitalObjectOfType fdo:MGFile .
+
+# metadata section, not sure where this should go
+#<http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID702> ; # Ethanol
+#<http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID5280450> ; # Lineoleic acid
+#<http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID5282184> . # Ethyl Lineolate
+
+:elMetadata :respresents :molecule .
+:molecule :molecularWeight "308.47"^^:gramsPerMol ;
+	skos:prefLabel "Ethyl Lineolate" ;
+	skos:notation "C20H36O2" ;
+	:cas "544-35-4" ;
+	<http://semanticscience.org/resource/SIO_000212> <http://dx.doi.org/10.1002/anie.201801332> ; # is referred to by
+	:availableAt <https://www.sigmaaldrich.com/catalog/search?term=ethyl+linoleate&interface=All&N=0&mode=match%20partialmax&lang=en&region=US&focus=product> .
+
+# provenance
+:elMetadata dct:contributor orcid:0000-0002-8042-4131 .
+
+orcid:0000-0002-8042-4131 a foaf:Person ;
+	foaf:name "Myles Axton" ;
+	pro:holdsRoleInTime [
+		a pro:RoleInTime ;
+		pro:withRole scoro:investigator-role ;
+	] .

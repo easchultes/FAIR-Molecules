@@ -1,0 +1,6 @@
+@prefix : <http://purl.org/fdof/hackathon/FAIR-Molecules/demo/EL/> .
+@prefix fdo: <http://example.com/fdo#> .
+
+:dirDescription a fdo:MGFile ;
+    fdo:hasAdjacencyFile <https://raw.githubusercontent.com/easchultes/FAIR-Moleculess/master/molecules/adjacency_L-Threonine.txt> ;
+    fdo:hasAtomsFile <https://raw.githubusercontent.com/easchultes/FAIR-Moleculess/master/molecules/atoms_L-Threonine.txt> .

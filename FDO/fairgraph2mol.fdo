@@ -1,4 +1,4 @@
-@prefix : <https://hackathon.fair-dtls.surf-hosted.nl/> .
+@prefix : <http://purl.org/fdof/hackathon/FAIR-Molecules/demo/> .
 @prefix fdo: <http://example.com/fdo#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
@@ -7,6 +7,6 @@
     fdo:digitalObjectOfType fdo:DockerImage ;
     fdo:locationOfDO <https://repo.lab.databiology.net/app/dbio/fairgraph2mol:0.0.0> ;
     datacite:hasIdentifier :identifier ;
-    dct:conformsTo <https://hackathon.fair-dtls.surf-hosted.nl/shacl-record.ttl> .
+    dct:conformsTo <http://purl.org/fdof/hackathon/FAIR-Molecules/demo/shacl-record.ttl> .
 
 :identifier a datacite:Identifier .
